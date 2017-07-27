@@ -1,0 +1,41 @@
+{
+    "name": "nikkiup2u3_clothes",
+    "description": "Some tools for nikkiup2u3",
+    "version": "1.0.0",
+    "author": {
+        "name":"spoonysnail",
+        "email":"spoonysnail@foxmail.com"
+    },
+    "respository":{
+        "type":"git",
+        "url":"git+https://github.com/spoonysnail/nikkiup2u3.git"
+    },
+    "homepage":"spoonysnail.leanapp.cn",
+    "keywords": [
+                 "node",
+                 "LeanCloud",
+                 "LeanEngine",
+                 "express"
+                 ],
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "1.12.3",
+        "connect-timeout": "^1.7.0",
+        "cookie-parser": "^1.3.5",
+        "ejs": "2.3.1",
+        "express": "4.12.3",
+        "string": "3.3.1",
+        "url": "0.11.0",
+        "leanengine": "^1.0.0-beta",
+        "connect-busboy": "0.0.2",
+        "http":"0.0.0",
+        "util":"0.10.3"
+    },
+    "engines": {
+        "node": "4.x"
+    },
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    }
+}

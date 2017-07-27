@@ -1,0 +1,288 @@
+body {
+	padding: 50px;
+	height:630px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+	color: #00b7ff;
+}
+
+#function {
+	width: 50%;
+	height: auto;
+	line-height:20px;
+	
+	/* margin:0 auto; */
+	float: left;
+	background-color: white;
+
+}
+
+#note {
+	width: 45%;
+	float: right;
+	font: 16px;
+	min-height:450px;
+	line-height:25px;
+	background-color: white;
+	border-style: none none none solid;
+	border-width: 1px;
+	border-color: Gainsboro;
+}
+
+
+
+
+#tab_nav{  
+  position: fixed;
+  width: 0px;
+  overflow: visible;
+}
+
+.card-wrapper {
+  display: inline-block;
+  float: right;
+  clear: both;
+}
+
+.card {
+  position: relative;
+  left: 12px;
+  padding: 6px 12px 6px 24px;
+  margin: 8px;  
+  x-box-shadow: 0 0 6px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 6px 0 6px -6px rgba(0, 0, 0, 0.5);
+  background: #fff;
+  transition: all 0.3s ease-in-out 0.1s;
+}
+
+.card:hover {
+  position: relative;
+  left: 60%;
+  padding:8px 16px 8px 32px;
+  margin-left: -32px;
+  box-shadow: 
+    0 -6px 6px -6px rgba(0, 0, 0, 0.5),
+    0 6px 6px -6px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+
+.card-content {
+  display: inline-block;
+  color: #fff;
+  font-family: 'Droid Sans', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+
+.bg-01 { background: #8DC2BC; }
+.bg-02 { background: #EDD6B4; }
+.bg-03 { background: #BE7467; }
+.bg-04 { background: #E2AE63; }
+
+
+
+#authorNote,#picUpload{
+	margin:0 20px;
+	width:100%; 
+}
+#feedback{
+	margin:0 0 0 20px;
+	width:100%;
+}
+
+#updateNote{
+	height:375px;
+	padding:0 25px 0 0;
+	overflow: auto;
+}
+#uyan_frame{
+	height:600px;
+	padding:0 25px 0 0;
+	overflow: auto;
+}
+
+ol {
+	counter-reset: li; /* 创建一个计数器 */
+	list-style: none; /* 清除列表默认的编码*/
+	*list-style: decimal; /* 让IE6/7具有默认的编码 */
+	font: 15px 'trebuchet MS', 'lucida sans';
+	padding: 0;
+	margin-bottom: 4em;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
+}
+
+ol ol {
+	margin: 0 0 0 2em; /* 给二级列表增加一定的左边距*/
+}
+
+/*rounded shaped numbers*/
+.rounded-list a {
+	position: relative;
+	display: block;
+	padding: 0.4em 0.4em 0.4em 2em;
+	*padding: 0.4em; /*for ie6/7*/
+	margin: 0.5em 0;
+	background: AliceBlue;
+	color: CornflowerBlue;
+	text-decoration: none;
+	/*CSS3属性*/
+	border-radius: 0.3em; /*制作圆角*/
+	/* transition动画效果*/
+	-moz-transition: all 0.3s ease-out;
+	-webkit-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+/*HoneyDew LavenderBlush*/
+.rounded-list a:hover {
+	background:   Lavender;
+}
+
+.rounded-list a:hover::before {
+	/*悬停时旋转编码*/
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+	-ms-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+
+.rounded-list a::before {
+	content: counter(li);
+	counter-increment: li;
+	position: absolute;
+	left: -1.3em;
+	top: 50%;
+	margin-top: -1.3em;
+	background: AliceBlue;
+	height: 2em;
+	width: 2em;
+	line-height: 2em;
+	border: 0.3em solid #fff;
+	text-align: center;
+	font-weight: bold;
+	border-radius: 2em;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+
+
+
+
+/* Tabbed Styles */
+.tabbed {
+  width: 50%;
+  min-width: 400px;
+  margin: 25px 0 15px 0;
+  border-top: 4px solid #000;
+  overflow: hidden;
+  transition: border 250ms ease;
+}
+.tabbed ul {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  float: left;
+  padding-left: 48px;
+  list-style-type: none;
+}
+.tabbed ul * {
+  margin: 0px;
+  padding: 0px;
+}
+.tabbed ul li {
+  display: block;
+  float: right;
+  padding: 10px 24px 8px;
+  background-color: #FFF;
+  margin-right: 46px;
+  z-index: 2;
+  position: relative;
+  cursor: pointer;
+  color: #777;
+
+  text-transform: uppercase;
+  font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+
+  transition: all 250ms ease;
+}
+.tabbed ul li:before,
+.tabbed ul li:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 44px;  
+  background-color: #FFF;
+  transition: all 250ms ease;
+}
+.tabbed ul li:before {
+  right: -24px;
+  transform: skew(30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) 3px 2px 5px, inset rgba(255,255,255,.09) -1px 0;
+}
+.tabbed ul li:after {
+  left: -24px;
+  transform: skew(-30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) -3px 2px 5px, inset rgba(255,255,255,.09) 1px 0;
+}
+.tabbed ul li:hover,
+.tabbed ul li:hover:before,
+.tabbed ul li:hover:after {
+  background-color: #F4F7F9;
+  color: #444;
+}
+.tabbed ul li.active {
+  z-index: 3;
+}
+.tabbed ul li.active,
+.tabbed ul li.active:before,
+.tabbed ul li.active:after {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Round Tabs */
+.tabbed.round ul li {
+  border-radius: 4px 4px 0 0;
+}
+.tabbed.round ul li:before {
+  border-radius: 0 0 8px 0;
+}
+.tabbed.round ul li:after {
+  border-radius: 0 0 0 8px;
+}
+
+/* Skins */
+.tabbed[class*="skin-"] ul li {
+  color: #FFF;
+  text-shadow: rgba(0,0,0,.1) 0 1px;
+}
+
+.tabbed.skin-blue {
+  border-top-color: #87CEFA;
+}
+.tabbed.skin-blue ul li,
+.tabbed.skin-blue ul li:before,
+.tabbed.skin-blue ul li:after {
+  background-color: #AED3F0;
+}
+.tabbed.skin-blue ul li:hover,
+.tabbed.skin-blue ul li:hover:before,
+.tabbed.skin-blue ul li:hover:after {
+  background-color: #80C0E1;
+}
+.tabbed.skin-blue ul li.active,
+.tabbed.skin-blue ul li.active:before,
+.tabbed.skin-blue ul li.active:after {
+  background-color: #87CEEB;
+}

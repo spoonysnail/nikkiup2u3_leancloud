@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>奇迹暖暖图鉴查询</title>
+<script type='text/javascript' charset="UTF-8"
+	src='/js/jquery-3.0.0.min.js'></script>
+<script type='text/javascript' charset="UTF-8" src='/js/fingerprint.js'></script>
+<script type='text/javascript' charset="UTF-8" src='/js/route.js'></script>
+<link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+
+	<div>
+		<div id="function">
+			<h1><%= title %></h1>
+			<form action="/wardrobe" method="POST" onsubmit="return toValid()">
+				<input name="finger_sign" id="finger_sign" style="display:none">
+				
+				<input type="text" name="clothname" id="clothname" /> 
+				<input type="submit" value="查询" />
+			</form>
+			<br />
+			<h3><%=searchkey%>&nbsp;
+			</h3>
+			<ul>
+				<% for(var i=0; i<clothes.length; i++) {
+      		link = "/wardrobe/"+clothes[i].get('rid');
+      %>
+				<li onclick=getClothPic("<%=clothes[i].get('rid') %>")>
+					<a
+					href="javascript:void(0)"><%=clothes[i].get('name') %></a></li>
+				<% } %>
+			</ul>
+			
+			<%if(url!=null){%>		
+				<div id='modeSelector' class='tabbed round skin-blue'>
+					<ul>
+					<li class onclick="changeMode(this)" id="iconLi"> ICON</li>
+					<li class='active' onclick="changeMode(this)" id="picLi"> PIC</li>
+				</div>
+				
+				<div id="picMode"><img id="pic" src=<%=url %> /></div>
+				<div id="iconMode" hidden>
+					<%
+					labelTxt = ''
+					if(!icon_url){
+						labelTxt = '暂无小图数据'%>
+						<img id="icon" src=<%=icon_url %> hidden/>
+						
+					 <%}else{%>
+						<img id="icon" src=<%=icon_url %> />
+					<%}%>
+					<label id="iconTip"><%=labelTxt %></label>
+				</div>
+			<% }%>
+			<p>
+				<a href="/">返回主页面</a>
+			</p>
+		</div>
+
+
+		<div id="note">
+			<div id="tab_nav">
+
+				<div class='card-wrapper' id='cw1'
+					onclick="showFeedback(false,false)">
+					<a href='#'>
+						<div class='card bg-01'>
+							<span class='card-content'>通告区</span>
+						</div>
+					</a>
+				</div>
+				<div class='card-wrapper' id='cw2'
+					onclick="showFeedback(true,false)">
+					<a href='#'>
+						<div class='card bg-02'>
+							<span class='card-content'>反馈区</span>
+						</div>
+					</a>
+				</div>
+				<div class='card-wrapper' id='cw2' onclick="showFeedback(true,true)">
+					<a href='#'>
+						<div class='card bg-03'>
+							<span class='card-content'>补图区</span>
+						</div>
+					</a>
+				</div>
+			</div>
+
+
+			<div id="tab_container">
+				<div id="authorNote" >
+					<div id="updateNote">
+						<h2>更新记录</h2>
+						0316 :
+						<ul>
+							<li>衣柜数据补录</li>
+						</ul>
+						0227 :
+						<ul>
+							<li>衣柜数据补录</li>
+						</ul>
+						0220 :
+						<ul>
+							<li>衣柜数据补录</li>
+						</ul>
+						1229 :
+						<ul>
+							<li>圣诞活动衣柜数据补录</li>
+						</ul>
+						1214 :
+						<ul>
+							<li>添加小图模式图鉴查询</li>
+							<li>感谢@迦洛丶翎 提供的小图数据</li>
+						</ul>
+						1209 :
+						<ul>
+							<li>衣柜数据补录</li>
+						</ul>
+						1105 :
+						<ul>
+							<li>衣柜数据补录</li>
+						</ul>
+						1027 :
+						<ul>
+							<li>星际穿梭衣柜数据补录</li>
+							<li>排序修正</li>				
+						</ul>
+						1017 :
+						<ul>
+							<li>服装店上新衣柜数据补录</li>
+						</ul>
+						1015 :
+						<ul>
+							<li>国庆后衣柜数据补录</li>
+						</ul>
+						0926 :
+						<ul>
+							<li>增加补图区，欢迎萌妹子们一起补充图鉴哈 (╭￣3￣)╭♡ 再次摸摸大</li>
+						</ul>
+						0924 :
+						<ul>
+							<li>增加反馈区，欢迎萌妹子们交流反馈 (╭￣3￣)╭♡ 摸摸大</li>
+							<li>发现一个浮夸的样式0。0</li>
+						</ul>
+						0922 :
+						<ul>
+							<li>查询结果混乱bug修正</li>
+							<li>衣柜图鉴补充--已补齐啦棒棒哒=3=
+								<ul>
+									<li>补充来源：@米桃 & 各种来源0.0...</li>
+									<li>收集整理：@迦洛丶翎 （应该是个小萌妹=3=）</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<h4> Update By
+							spoonysnail</h4>
+					<h2>使用提示</h2>
+					<ol class="rounded-list">
+						<li><a>支持关键字匹配查询，宝宝们输入关键字就可以啦。</a></li>
+						<li><a>e.g.搜索“暖茸·华丽”输入"暖茸"即可</a></li>
+						<li><a>查询返回上限为10条数据</a></li>
+						<li><a>因为是匹配查询，输入错误的话是木有返回结果的哦0.0</a></li>
+						<li><a>通过PIC/ICON可切换图鉴大图/小图模式</a></li>
+						<li><a>小图模式数据不全，以大图模式为主</a></li>
+					</ol>
+				</div>
+				<div id="feedback" hidden>
+					<h2>交流反馈</h2>
+
+					<!-- UY BEGIN -->
+					<div id="uyan_frame" height=700px></div> 
+
+						<script type="text/javascript"
+						src="http://v2.uyan.cc/code/uyan.js?uid=2114711"></script> 
+					<!-- UY END -->
+			<!--			<script type="text/javascript">
+(function(){
+var url = "http://widget.weibo.com/distribution/comments.php?width=0&url=http%3A%2F%2Fspoonysnail.leanapp.cn%2Fwardrobe&skin=2&appkey=3678096562&iframskin=2&dpc=1";
+document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:100%"></iframe>');
+})();
+</script>
+<script src="http://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+window.WBComment.init({
+    "id": "WBCommentFrame"
+});
+</script>-->
+
+
+
+				</div>
+				<div id="picUpload" hidden>
+					<h2>图鉴补充</h2>
+					<form id="upload-file-form" class="upload"
+						enctype="multipart/form-data">
+						<input name="finger_sign" id="finger_sign2" style="display:none">
+						
+						<label>衣柜图片：</label> <input name="attachment" id="attachment"
+							type="file" accept="image/gif, image/jpeg, image/png"
+							style="width: 350px" /> <input type="button" value="提交"
+							onclick=uploadPic() />
+
+					</form>
+					<h2>上传说明</h2>
+					<ul>
+						<li>感谢所有提供数据的妹纸么么哒o(*////▽////*)q</li>
+						<li>目前尚欠缺服装有：
+							<ul>
+								<li>织梦人学会：银白月夜、时光花雨、凤凰箫、真珠红、红豆生南国</li>
+								<li>废墟孤岛·蔚蓝向往：蔚蓝向往、远洋坐标
+								<li>莉莉斯王国·星星的祝福-定制套</li>
+								<li>兰若</li>
+								<li>贴心泰迪·花（已存在，但无介绍页面）</li>
+							</ul>
+						</li>
+						<li>上传图片尽量为<font color="LightCoral">衣柜截图</font>：在衣柜中搜索服装并进行手机截图（・(ｪ)・）
+						</li>
+						<li>妹子上传图片后可以在反馈区说一声哦=3=感谢！~</li>
+						<li><font color="LightCoral">另：请勿上传无关图片。</font>
+							<ul>
+							    <li><font color="LightCoral">12-11声明：请确保上传图片不是答题界面，否则一律加入黑名单</font></li>
+								<li>该图片上传区是为了补充数据库中缺少的服装，<font color="LightCoral">不是为了帮助答题的!!</font></li>
+								<li>所以，<font color="LightCoral">请不要上传答题界面</font>谢谢</li>
+                                <li>再次申明，<font color="LightCoral">请不要上传答题界面,后台数据存储有限！</font></li>
+                                <li>上传图片时，<font color="LightCoral">上传者的ip，设备信息后台均有存储，多次上传答题界面的请不要怪我加入黑名单</font></li>
+
+							<ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

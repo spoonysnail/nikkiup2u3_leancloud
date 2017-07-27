@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="ujianVerification" content="88f898293f8782c6599dba131f1049d4" />
+<meta property="wb:webmaster" content="33e45d2c87f4919b" />
+<title>奇迹暖暖服装分解查看器</title>
+<script type='text/javascript' charset="UTF-8" src='/js/jquery-3.0.0.min.js'></script>
+<script type='text/javascript' charset="UTF-8" src='/js/jquery.floatThead.min.js'></script>
+<script type='text/javascript' charset="UTF-8" src='/data/Wardrobe.js'></script>
+<script type='text/javascript' charset="UTF-8" src='/data/Pattern.js'></script>
+<script type='text/javascript' charset="UTF-8" src='/data/Evolve.js'></script>
+<script type='text/javascript' charset="UTF-8" src='/js/model.js'></script>
+<script type='text/javascript' charset="UTF-8" src='/js/nikki.js'></script>
+
+<link rel="stylesheet" href="/stylesheets/mainstyle.css">
+
+</head>
+<body>
+<p><a href="/wardrobe">服装图鉴查询</a></p>
+
+<div class='announcement'>
+Nikki's wardrobe.<br/>
+Based On Ivangift's  <a href="http://ivangift.github.io/nikkiup2u3/">Nikkiup2u3 website</a>
+</div>
+<hr/>
+<div id='modeSelector'>
+<span>模式：</span>
+<input class="nice" type="radio" name="boost" id="general" value="general" onclick="collectMode(false)" checked="">
+<label for="general">普通模式</label>
+<input class="nice" type="radio" name="boost" id="pass" value="pass" onclick="passMode(true)">
+<label for="pass">过关收集模式</label>
+<input class="nice" type="radio" name="boost" id="other" value="other" onclick="collectMode(true)">
+<label for="other">其他收集模式</label>
+
+</div>
+<div id='filtersTop'>
+<form name="filter_form">
+<div>
+<input type="checkbox" name="inventory" value="own" onClick="onChangeUiFilter()" checked />拥有
+<span id='inventoryCount'> </span>
+<input type="checkbox" name="inventory" value="missing" onClick="onChangeUiFilter()" checked /> 没有
+</div>
+<div>
+<span>已拥有： &nbsp;</span>
+<input type="checkbox" name="decomposable" value="can" onclick="onChangeDecompose()"/>可分解
+<input type="checkbox" name="decomposable" value="cannot" onclick="onChangeDecompose()"/>不可分解
+</div>
+<div>
+<span>星级: &nbsp;&nbsp;&nbsp;</span>
+<input type="checkbox" name="decomposable_star" value="oneS" onclick="onChangeDecomposeStar()"/>一星
+<input type="checkbox" name="decomposable_star" value="twoS"  onclick="onChangeDecomposeStar()"/>二星
+<input type="checkbox" name="decomposable_star" value="threeS" onclick="onChangeDecomposeStar()"/>三星
+<input type="checkbox" name="decomposable_star" value="fourS" onclick="onChangeDecomposeStar()"/> 四星
+<input type="checkbox" name="decomposable_star" value="fiveS" onclick="onChangeDecomposeStar()"/>五星
+<input type="checkbox" name="decomposable_star" value="sixS" onclick="onChangeDecomposeStar()"/>六星
+</div>
+</form>
+</div>
+<div id="chapterSelector" >
+<input type="radio" name="levelType" value="少" onClick="changeChapterOrLevelType()" /> 少女级
+<input type="radio" name="levelType" value="公" onClick="changeChapterOrLevelType()" checked/> 公主级
+<select id="chapter" onchange="changeChapterOrLevelType()"></select>
+</div>
+<div id="collectTypeSelector" >
+<label>来源： </label>
+<select id="collectType" onchange="changeCollectType()"></select>
+</div>
+
+<hr>
+<div id='category_container'>
+</div>
+<div id = "clothes"></div>
+<hr>
+
+
+
+<hr>
+<p>我拥有的服装 （复制衣橱文本框内容以备份衣橱）</p>
+<textarea id="myClothes" rows=10 style="width:600px"></textarea>
+<br/>
+<button onClick="loadCustomInventory()">Update inventory</button>
+<br/>
+<hr>
+<div id = 'log'></div>
+</body>
+</html>
+
